@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Guard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a> <!-- New About Link -->
+        <a href="#emergency-contacts">Emergency Contacts</a>
+        <a href="#history">History</a>
+        <a href="#map">Map</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#" id="loginBtn">Login/Sign Up</a> <!-- Modal trigger -->
+    </nav>
+    <div class="search-container">
+      <input type="text" placeholder="Search..." name="search" id="search-bar">
+      <button type="submit" class="search-btn">Search</button>
+    </div>
+    
+<!-- Home Section -->
+<section id="home">
+  <!-- Animated Shapes -->
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
+
+  <!-- Home Content -->
+  <div class="home-content">
+    <h1 class="home-title">Welcome to Our Journey</h1>
+    <p class="home-subtitle">
+      Discover, Explore, and Transform Your Experience 
+      with Innovative Solutions and Cutting-Edge Technology
+    </p>
+    <div class="home-cta">
+      <a href="#about">Learn More</a>
+      <a href="#contact">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- Particle Effect Script -->
+<script>
+  function createParticles() {
+    const home = document.getElementById('home');
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.width = `${Math.random() * 5}px`;
+      particle.style.height = particle.style.width;
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
+      particle.style.animationDelay = `${Math.random() * -10}s`;
+      home.appendChild(particle);
+    }
+  }
+  
+  createParticles();
+</script>
+<section id="about">
+  <div class="about-content">
+    <h2 class="about-title">About Us</h2>
+    <p class="about-description">
+      At FireGuard, we are committed to revolutionizing fire safety in industrial environments by leveraging cutting-edge AI and IoT technology. Our advanced fire detection system combines real-time alerts, rapid detection, and automated suppression mechanisms to minimize fire-related risks and damages. With precision-calibrated cameras and integrated sensors, FireGuard ensures early detection of fire, smoke, and gas leaks, enabling swift responses. Our mission is to provide industries with innovative solutions that not only safeguard lives and assets but also promote operational continuity. Trusted by experts and tailored for diverse industrial needs, FireGuard is dedicated to building safer, smarter, and fire-resilient environments.
+    </p>
+  </div>
+</section>
+
+<!-- Emergency Contacts Section -->
+<section id="emergency-contacts">
+  <h2>Emergency Contacts</h2>
+  
+  <!-- Image Sections for Emergency Services, NGOs, Relatives -->
+  <div class="contact-container">
+    <div class="contact-card" id="emergencyServices">
+      <img src="Ers.jpg" alt="Emergency Services">
+      <p>Emergency Services</p>
+    </div>
+    
+    <div class="contact-card" id="ngos">
+      <img src="NGO.jpg" alt="NGOs">
+      <p>NGOs</p>
+    </div>
+    
+    <div class="contact-card" id="relatives">
+      <img src="relatives.jpeg" alt="Relatives">
+      <p>Relatives</p>
+    </div>
+  </div>
+   <!-- Popup Box for Contact Numbers (Initially hidden) -->
+<div id="contactPopup" class="contact-popup">
+  <div class="popup-content">
+    <span id="closePopup" class="close-popup">&times;</span>
+    <h3>Contact Numbers</h3>
+    <ul id="contactList">
+      <!-- Contact Numbers will be added here dynamically -->
+    </ul>
+  </div>
+</div>
+</section>
+<section id="history">
+  <h1>History of Fire Accidents</h1>
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-item">
+        <img src="accident 1.jpeg" alt="Accident 1" class="carousel-image" data-description="In a tragic incident at the Zen Paints facility in Chennai, an explosion in a storage area ignited a massive fire. The blast was reportedly caused by a short circuit in one of the storage rooms containing flammable chemicals like toluene and acetone. The explosion was so powerful that it shattered windows and was heard several kilometers away. Three lives were lost, including two workers who were inside the storage area at the time and a pedestrian hit by flying debris. Firefighters battled the blaze for nearly six hours, with several team members needing medical attention for inhalation of toxic fumes. Post-incident investigations revealed a failure to adhere to fire safety guidelines for chemical storage and poor maintenance of electrical equipment. The factory was temporarily shut down, and its license was revoked pending further investigations.">
+        <p class="short-description">Paint Factory Blast, Chennai, Tamil Nadu (2024)</p>
+      </div>
+      <div class="carousel-item">
+        <img src="accident 2.jpeg" alt="Accident 2" class="carousel-image" data-description="In Mumbai, a plastic manufacturing facility in an industrial area caught fire late at night, triggered by overheating machinery used in the molding process. The flames rapidly spread to stored raw materials like polypropylene and polyethylene, which are highly flammable. While the fire caused significant damage to property and destroyed goods worth several crores, the factory's emergency alarm system and fire drills conducted earlier helped ensure there were no casualties. Nearby residential areas were evacuated as a precaution due to the toxic smoke emanating from the burning plastic. Firefighters took over 12 hours to extinguish the blaze, which left the factory in ruins. The incident highlighted the need for modernizing equipment, implementing real-time monitoring for overheating, and ensuring fireproof storage solutions for raw materials.">
+        <p class="short-description">Plastic Manufacturing Unit Fire, Mumbai, Maharashtra (2024)</p>
+      </div>
+      <div class="carousel-item">
+        <img src="accident 3.jpeg" alt="Accident 3" class="carousel-image" data-description="Sivakasi, often called the fireworks capital of India, faced yet another tragedy in one of its numerous firecracker manufacturing units. The explosion occurred during peak production hours, when workers were handling potassium nitrate and aluminum powder, both highly combustible materials. Sparks from friction or static electricity likely triggered the initial explosion, which spread rapidly to other parts of the factory due to the lack of fire breaks. Eight workers were killed on the spot, and several others suffered burns ranging from minor to life-threatening. The absence of adequate fire extinguishers and delayed emergency response exacerbated the situation. The incident brought to light long-standing issues in the industry, such as overcrowded workspaces, lack of safety training, and non-compliance with labor and fire safety laws. Local authorities pledged stricter inspections and better enforcement of safety standards following the disaster.">
+        <p class="short-description">
+          Firecracker Factory Explosion, Sivakasi, Tamil Nadu (2024)</p>
+      </div>
+      <div class="carousel-item">
+        <img src="accident 4.jpeg" alt="Accident 4" class="carousel-image" data-description="A routine maintenance operation at the Bhilai Steel Plant turned catastrophic when sparks from welding equipment ignited nearby oil-soaked rags and flammable materials. The fire quickly escalated due to poor containment of combustible substances. Workers attempted to douse the flames using hand-held extinguishers, but the fire's intensity necessitated the intervention of the local fire department. Several workers were injured, some suffering severe burns, while others required treatment for smoke inhalation. Although the fire was controlled within three hours, the incident disrupted operations for weeks, causing significant financial losses. Investigators cited negligence in following safety protocols and inadequate training for maintenance crews as major factors contributing to the accident. The management promised to revamp safety measures and provide better training to avoid future occurrences.">
+        <p class="short-description">Chemical Factory Fire, Gujarat (2024)</p>
+      </div>
+      <div class="carousel-item">
+        <img src="accident 5.jpeg" alt="Accident 5" class="carousel-image" data-description="In Tiruppur, known as India's knitwear hub, a fire broke out in a textile factory during the night shift. Faulty wiring in one of the dyeing machines caused the fire, which spread quickly through the facility due to the highly flammable nature of the stored fabric and chemicals. Workers trapped inside struggled to exit, as the factory's narrow hallways and obstructed emergency exits delayed evacuation efforts. While no lives were lost, the fire resulted in injuries to several workers and destroyed raw materials and finished goods worth crores. The accident raised serious concerns about fire safety compliance in small- and medium-scale industries, prompting the local administration to initiate safety inspections across the region.">
+        <p class="short-description">Tey Fire, Tiruppur, Tamil Nadu (2023)</p>
+      </div>
+      <div class="carousel-item">
+        <img src="accident 6.jpeg" alt="Accident 6" class="carousel-image" data-description="A catastrophic fire broke out at a chemical manufacturing unit in Gujarat's Bharuch district, following a suspected gas leak. Workers noticed the leak but could not shut off the supply in time, allowing flammable gases to accumulate and ignite when exposed to a spark, possibly from machinery. The resulting explosion and fire caused a massive inferno, engulfing several sections of the plant. Emergency response teams faced challenges entering the premises due to dense, toxic smoke and the risk of secondary explosions. Four workers were killed, and over a dozen were hospitalized with severe injuries. The incident underscored the importance of continuous gas monitoring systems and automated shut-off valves in chemical plants. Authorities imposed strict penalties on the factory and mandated extensive safety upgrades before it could resume operations.">
+        <p class="short-description">Steel Plant Blaze, Bhilai, Chhattisgarh (2023)</p>
+      </div>
+    </div>
+    <button class="carousel-button left-arrow">&lt;</button>
+    <button class="carousel-button right-arrow">&gt;</button>
+  </div>
+  
+  <!-- Pop-up Modal -->
+  <div id="popup" class="popup">
+    <span class="close-popup" id="close-popup">&times;</span>
+    <div class="popup-content">
+      <h2>Accident Details</h2>
+      <p id="popup-description"></p>
+    </div>
+  </div>
+</section>
+
+    <section id="map">
+        <h1 class="map-title">Map</h1>
+        <div class="map-container">
+          <input type="text" placeholder="Search for a location..." class="search-bar">
+          <a href="https://www.google.com/maps" target="_blank">
+            <img src="location in google map.jpg" alt="Map Image" class="map-image">
+          </a>
+          <div class="location-box">
+            <p><strong>Location Details:</strong></p>
+            <p>Place: [Your Place]</p>
+            <p>Latitude: [Your Latitude]</p>
+            <p>Longitude: [Your Longitude]</p>
+            <p>Status: [Your Status]</p>
+          </div>
+        </div>
+      </section>
+      <section id="faqs" class="faq-section">
+        <h2>FAQs</h2>
+        <div class="faq-category">
+          <h3>About Fire Guard</h3>
+          <div class="faq-item">
+            <button class="faq-question">What is Fire Guard?</button>
+            <div class="faq-answer">
+              <p>Fire Guard is an AI-based fire detection and prevention system for industrial settings.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">How does Fire Guard work?</button>
+            <div class="faq-answer">
+              <p>It uses cameras and sensors with machine learning to detect fire and gas leaks in real-time.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-category">
+          <h3>Technical Features</h3>
+          <div class="faq-item">
+            <button class="faq-question">What sensors are integrated?</button>
+            <div class="faq-answer">
+              <p>The system integrates gas sensors, temperature sensors, and AI-powered cameras.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Does it work offline?</button>
+            <div class="faq-answer">
+              <p>Yes, it has offline capabilities for local alerts.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-category">
+          <h3>Support & Service</h3>
+          <div class="faq-item">
+            <button class="faq-question">Do you offer 24/7 support?</button>
+            <div class="faq-answer">
+              <p>Yes, our support team is available 24/7 to assist you.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Is installation included?</button>
+            <div class="faq-answer">
+              <p>Installation services are included in the package.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+               
+   <!-- Login/Signup Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+  
+      <!-- Login Form -->
+      <div id="loginForm">
+        <h2>Login</h2>
+        <form action="login.php" method="POST">
+          <div class="input-group">
+            <i class="fa fa-envelope"></i>
+            <input type="email" placeholder="Email" required>
+          </div>
+          <div class="input-group">
+            <i class="fa fa-lock"></i>
+            <input type="password" placeholder="Password" required>
+          </div>
+          <button type="submit">Login</button>
+         <!-- Link to switch to Sign Up -->
+<a href="#" id="switchToSignUp">Don't have an account? Sign Up</a>
+        </form>
+      </div>
+  <!-- Sign Up Form -->
+<div id="signUpForm" style="display: none;">
+  <h2>Sign Up</h2>
+  <form action="signup.php" method="POST">
+      <div class="input-group">
+          <i class="fa fa-user"></i>
+          <input type="text" name="fullname" placeholder="Full Name" required>
+      </div>
+      <div class="input-group">
+          <i class="fa fa-calendar"></i>
+          <input type="date" name="dob" placeholder="Date of Birth" required>
+      </div>
+      <div class="input-group">
+          <i class="fa fa-venus-mars"></i>
+          <select name="gender" required>
+              <option value="" disabled selected>Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+          </select>
+      </div>
+      <div class="input-group">
+          <i class="fa fa-phone"></i>
+          <input type="tel" name="contact_number" placeholder="Contact Number" required>
+      </div>
+      <div class="input-group">
+          <i class="fa fa-address-card"></i>
+          <input type="text" name="address1" placeholder="Address Line 1" required>
+      </div>
+      <div class="input-group">
+          <i class="fa fa-address-card"></i>
+          <input type="text" name="address2" placeholder="Address Line 2">
+      </div>
+      <div class="input-group">
+          <i class="fa fa-envelope"></i>
+          <input type="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+          <i class="fa fa-lock"></i>
+          <input type="password" name="password" placeholder="Password" required>
+      </div>
+      <button type="submit">Sign Up</button>
+      <a href="#" id="switchToLogin">Already have an account? Login</a>
+  </form>
+</div>
+
+<!-- Login/Sign-up Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span> <!-- Close button -->
+      <h2>Login</h2>
+      <!-- Add your login form here -->
+    </div>
+  </div>  
+<!-- Social Media Icons -->
+      <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.twitter.com" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </div>
+  </div>  
+  </div>
+</div>
+<div class="profile-container">
+  <img id="profile-pic" src="profile.jpeg" alt="Profile Picture" onclick="toggleDropdown()">
+  <div id="profile-dropdown" class="dropdown-menu">
+    <a href="profile.html">My Profile</a>
+    <a href="settings.html">Settings</a>
+    <a href="#" onclick="logout()">Log Out</a>
+  </div>
+</div>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script> 
+ <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h2>Fire Guard</h2>
+      <p>© 2024 Fire Guard. All Rights Reserved.</p>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-links">
+      <div class="footer-column">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Fire Detection</a></li>
+          <li><a href="#">Real-Time Alerts</a></li>
+          <li><a href="#">Automated Suppression</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <ul>
+            <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+          </ul>
+        </div>        
+      </div>
+    </div>
+    <div class="footer-download">
+      <p>For better experience, download the Fire Guard app now:</p>
+      <div class="download-buttons">
+        <a href="#"><img src="Apple_bagde-removebg-preview.png" alt="App Store"></a>
+        <a href="#"><img src="google-play-badge.png" alt="Google Play"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form action="/submit_form" method="POST">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+</section>
+</body>
+</html>
+
